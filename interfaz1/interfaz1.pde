@@ -1,11 +1,13 @@
 int X, Y, z=800, c=600, cl,count=0;
 float pmouseX, pmouseY;
 color pincel = 0;
+PFont font1; // VARIABLE TIPO DE LETRA
 
 void setup()
 {
   size(800,600,P3D);
   background(255,255,255);
+  
 }
  
 
@@ -17,10 +19,12 @@ void draw()
 void diseno()
 {
    // SE CREAN LOS CUADROS DE LOS COLORES
+  font1 = loadFont("Harrington-48.vlw");
+  textFont(font1, 48);
   stroke(0);
-  fill(0);
-  textSize(26);
- text("¡TO DRAW!",350,25);
+  fill(0,0,0);
+  textSize(32);
+  text("¡TO DRAW!",350,25);
   fill(255);
   stroke(255);
   rect(1,30,797,125);
@@ -28,15 +32,15 @@ void diseno()
   rect(50,70,25,25);
   fill(255,0,0);  //rojo
   rect(80,70,25,25);
-fill(255,255,0);  //amarillo
+  fill(255,255,0);  //amarillo
   rect(110,70,25,25);
-fill(0,0,255); //azul
+  fill(0,0,255); //azul
   rect(140,70,25,25);
-fill(255,0,255);  //fuccia
+  fill(255,0,255);  //fuccia
   rect(170,70,25,25);
-fill(0,0,0);  //negro
+  fill(0,0,0);  //negro
   rect(200,70,25,25);
-   fill(0,255,255);   //aguamarina
+  fill(0,255,255);   //aguamarina
   rect(230,70,25,25);  
   fill(142,68,173);   //morado
   rect(260,70,25,25);
@@ -53,6 +57,12 @@ fill(0,0,0);  //negro
   fill(255);
   stroke(0);
   triangle(620, 95, 650,70, 680, 95); // para dibujar un triangulo
+  stroke(0);
+  fill(0);
+  textSize(26);
+  text("2D",580,50);
+  fill(255);
+  
 }
   void borrador()
 // CON EL CLIC DERECHO DEL MOUSE SE BORRA LA PANTALLA
@@ -77,7 +87,7 @@ void mouseDragged(){
            
 void mousePressed()
 {
-  println("mouseX: "+mouseX +" mouseY: "+mouseY);
+  //println("mouseX: "+mouseX +" mouseY: "+mouseY);
   if(mouseButton==LEFT){
    
     if(mouseX<=73 && mouseX>=51 && mouseY>=70 && mouseY<=94)
