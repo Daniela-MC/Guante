@@ -2,11 +2,17 @@ int X, Y, z=800, c=600, cl,count=0;
 float pmouseX, pmouseY;
 color pincel = 0;
 PFont font1; // VARIABLE TIPO DE LETRA
+float ang = 0.0;
+boolean button = false; 
+float a = 0; 
+float b = 0; 
+float angle = 0; 
 
 void setup()
 {
   size(800,600,P3D);
   background(255,255,255);
+  frameRate(15);
   
 }
  
@@ -14,6 +20,8 @@ void setup()
 void draw()
 {
  diseno();
+ figuras2d();
+ figuras3d();
 }
 
 void diseno()
@@ -28,39 +36,49 @@ void diseno()
   fill(255);
   stroke(255);
   rect(1,30,797,125);
-  fill(0,255,0);  //verde
+  fill(0,255,0);  // VERDE
   rect(50,70,25,25);
-  fill(255,0,0);  //rojo
+  fill(255,0,0);  // ROJO
   rect(80,70,25,25);
-  fill(255,255,0);  //amarillo
+  fill(255,255,0);  // AMARILLO
   rect(110,70,25,25);
-  fill(0,0,255); //azul
+  fill(0,0,255); // AZUL
   rect(140,70,25,25);
-  fill(255,0,255);  //fuccia
+  fill(255,0,255);  // FUCCIA
   rect(170,70,25,25);
-  fill(0,0,0);  //negro
+  fill(0,0,0);  // NEGRO
   rect(200,70,25,25);
-  fill(0,255,255);   //aguamarina
+  fill(0,255,255);   // AGUAMARINA
   rect(230,70,25,25);  
-  fill(142,68,173);   //morado
+  fill(142,68,173);   // MORADO
   rect(260,70,25,25);
-  fill(241,148,138);  //rosado
+  fill(241,148,138);  // ROSADO
   rect(290,70,25,25);
-  fill(112,123,124);  //gris
+  fill(112,123,124);  // GRIS
   rect(320,70,25,25);
   fill(255);
   stroke(0);
-  rect(530,70,25,25); // para dibujar un cuadrado
+  rect(430,70,25,25); // PARA DIBUJAR UN CUADRADO
   fill(255);
   stroke(0);
-  ellipse(590,85,30,30); // para dibujar un circulo
+  ellipse(490,80,30,30); // PARA DIBUJAR UN CIRCULO
   fill(255);
   stroke(0);
-  triangle(620, 95, 650,70, 680, 95); // para dibujar un triangulo
+  triangle(510, 95, 540,70, 570, 95); // PARA DIBUJAR UN TRIANGULO
   stroke(0);
   fill(0);
   textSize(26);
-  text("2D",580,50);
+  text("2D",470,60);
+  stroke(0);
+  fill(0);
+  textSize(26);
+  text("3D",670,60);
+  fill(255);
+  stroke(0);
+  ellipse(670,80,10,10);
+  fill(255);
+  stroke(0);
+  ellipse(700,80,10,10);
   fill(255);
   
 }
@@ -87,7 +105,7 @@ void mouseDragged(){
            
 void mousePressed()
 {
-  //println("mouseX: "+mouseX +" mouseY: "+mouseY);
+  println("mouseX: "+mouseX +" mouseY: "+mouseY);
   if(mouseButton==LEFT){
    
     if(mouseX<=73 && mouseX>=51 && mouseY>=70 && mouseY<=94)
@@ -218,9 +236,16 @@ if(mouseButton==LEFT){
       pmouseY=mouseY;
     }
 }
-if(mouseButton==LEFT){
+}
+}
+
+}
+
+void figuras2d()
+{
+  if(mouseButton==LEFT){
     
-    if(mouseX>=530 && mouseX<=553 && mouseY>=69 && mouseY<=91)
+    if(mouseX>=432 && mouseX<=454 && mouseY>=72 && mouseY<=93)
     {
         rect(300,200,200,200);
         
@@ -228,7 +253,7 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=571 && mouseX<=607 && mouseY>=69 && mouseY<=95)
+    if(mouseX>=472 && mouseX<=505 && mouseY>=66 && mouseY<=90)
     {
         ellipse(350,300,200,200);
         
@@ -236,12 +261,54 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=620 && mouseX<=681 && mouseY>=69 && mouseY<=94)
+    if(mouseX>=512 && mouseX<=566 && mouseY>=67 && mouseY<=92)
     {
         triangle(300,400,390,200,500,400);
         
     }
 }
 }
-}
+
+void figuras3d()
+{
+    if(mouseX>=663 && mouseX<=677 && mouseY>=73 && mouseY<=86)
+    { 
+      if (mousePressed && mouseButton==LEFT)
+      {
+        translate(width/2, height/2);
+        rotateX(frameCount*PI/60.0);
+        rotateY(frameCount*PI/120.0);
+        rotateZ(frameCount*PI/180.0);
+        box(100, 100, 100);
+      } 
+    }
+    
+    if(mouseX>=692 && mouseX<=707 && mouseY>=74 && mouseY<=83)
+    { 
+      if (mousePressed && mouseButton==LEFT)
+      {   
+        translate(width/2, height/2);
+        rotateX(ang += 0.1);
+        rotateY(ang += 0.1);
+        rotateZ(ang += 0.1);
+        ellipse(0, 0, 300, 300);
+      }
+    }
+    
+  /*  // LINEAS DE COLORES
+     if (mousePressed && (mouseButton == LEFT)){
+   translate(mouseX, mouseY);
+   rotate(radians(angle));
+   stroke(random(100,200), random(50,255), random(25,75));
+    line(a, b, -60, 10); 
+    line(a, -b, 60, -10); 
+    a += 0.2;
+    b += 0.2; 
+    angle += 5; 
+    
+  } else if (mousePressed && (mouseButton == RIGHT)) {
+    background(0);
+  }else {
+    rect(0,0,10,10);
+    }*/
 }
