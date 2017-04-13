@@ -1,4 +1,3 @@
-float x, y;
 int X, Y, z=800, c=600, cl,count=0;
 float pmouseX, pmouseY;
 color pincel = 0;
@@ -21,7 +20,7 @@ void diseno()
   stroke(0);
   fill(0);
   textSize(26);
-  text("¡TO DRAW!",350,25);
+ text("¡TO DRAW!",350,25);
   fill(255);
   stroke(255);
   rect(1,30,797,125);
@@ -29,26 +28,33 @@ void diseno()
   rect(50,70,25,25);
   fill(255,0,0);  //rojo
   rect(80,70,25,25);
-  fill(255,255,0);  //amarillo
+fill(255,255,0);  //amarillo
   rect(110,70,25,25);
-  fill(0,0,255); //azul
+fill(0,0,255); //azul
   rect(140,70,25,25);
-  fill(255,0,255);  //fuccia
+fill(255,0,255);  //fuccia
   rect(170,70,25,25);
-  fill(0,0,0);  //negro
+fill(0,0,0);  //negro
   rect(200,70,25,25);
-  fill(0,255,255);   //aguamarina
+   fill(0,255,255);   //aguamarina
   rect(230,70,25,25);  
   fill(142,68,173);   //morado
   rect(260,70,25,25);
   fill(241,148,138);  //rosado
   rect(290,70,25,25);
-  fill(255,255,255);
-  fill(0);
- 
+  fill(112,123,124);  //gris
+  rect(320,70,25,25);
+  fill(255);
+  stroke(0);
+  rect(530,70,25,25); // para dibujar un cuadrado
+  fill(255);
+  stroke(0);
+  ellipse(590,85,30,30); // para dibujar un circulo
+  fill(255);
+  stroke(0);
+  triangle(620, 95, 650,70, 680, 95); // para dibujar un triangulo
 }
-
-void borrador()
+  void borrador()
 // CON EL CLIC DERECHO DEL MOUSE SE BORRA LA PANTALLA
 {
   fill(255);
@@ -56,30 +62,7 @@ void borrador()
   rect(1,1,z,c);
 }
 
- public void keyPressed()
-{
-  // EL TAMAÑO DEL BORADOR SE PUEDE CAMBIAR SI SE PRESIONAN LAS TECLAS '+' Y '-'
- if(key=='+')
- {
-   c++;
-   z++;
- }
- if(key=='-')
- {
-   c--;
-   z--;
- }
-}
-
 void mouseDragged(){
-  
- /* if(mouseX<=797 && mouseX>=0 && mouseY>=0 && mouseY<=153)
-  {
-    if(mouseX<=73 && mouseX>=51 && mouseY>=70 && mouseY<=94){
-    
-    if(mouseX<=82 && mouseX>=102 && mouseY>=72 && mouseY<=92){
-    return;}}}*/
-  
   
   if(mouseButton==LEFT){
     stroke(pincel);
@@ -210,6 +193,43 @@ if(mouseButton==LEFT){
     {
       pmouseX=mouseX;
       pmouseY=mouseY;
+    }
+}
+if(mouseButton==LEFT){
+    
+    if(mouseX>=324 && mouseX<=342 && mouseY>=71 && mouseY<=90)
+    {
+        pincel= color(112,123,124);
+      
+    }
+    else
+    {
+      pmouseX=mouseX;
+      pmouseY=mouseY;
+    }
+}
+if(mouseButton==LEFT){
+    
+    if(mouseX>=530 && mouseX<=553 && mouseY>=69 && mouseY<=91)
+    {
+        rect(300,200,200,200);
+        
+    }
+}
+if(mouseButton==LEFT){
+    
+    if(mouseX>=571 && mouseX<=607 && mouseY>=69 && mouseY<=95)
+    {
+        ellipse(350,300,200,200);
+        
+    }
+}
+if(mouseButton==LEFT){
+    
+    if(mouseX>=620 && mouseX<=681 && mouseY>=69 && mouseY<=94)
+    {
+        triangle(300,400,390,200,500,400);
+        
     }
 }
 }
