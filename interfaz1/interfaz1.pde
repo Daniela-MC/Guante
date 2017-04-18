@@ -1,3 +1,5 @@
+import processing.serial.*;
+
 int X, Y, z=800, c=600, cl,count=0;
 float pmouseX, pmouseY;
 color pincel = 0;
@@ -8,11 +10,21 @@ float a = 0;
 float b = 0; 
 float angle = 0; 
 
+Serial port;
+
+int accX, accY, accZ;
+float gX, gY, gZ;
+float pitch, roll;
+
 void setup()
 {
   size(800,600,P3D);
   background(255,255,255);
   frameRate(15);
+  port = new Serial(this, Serial.list()[0], 9600);
+  port.clear();
+  
+  port.bufferUntil('\n');
   
 }
  
@@ -274,27 +286,21 @@ void figuras3d()
     //CUBO 
     if(mouseX>=663 && mouseX<=677 && mouseY>=73 && mouseY<=86)
     { 
-      if (mousePressed && mouseButton==LEFT)
-      {
-        translate(width/2, height/2);
-        rotateX(frameCount*PI/60.0);
-        rotateY(frameCount*PI/120.0);
-        rotateZ(frameCount*PI/180.0);
-        box(100, 100, 100);
-    
-      } 
+      translate(width/2, height/2);
+
+       rotateX(pitch);
+       rotateY(roll);
+       box(100, 100, 100);
+ 
     }
     
     if(mouseX>=692 && mouseX<=707 && mouseY>=74 && mouseY<=83)
-    { 
-      if (mousePressed && mouseButton==LEFT)
-      {   
-        translate(width/2, height/2);
-         rotateX(frameCount*PI/60.0);
-        rotateY(frameCount*PI/120.0);
-        rotateZ(frameCount*PI/180.0);
-        ellipse(0, 0, 300, 300);
-      }
+    {    
+         translate(width/2, height/2);
+         rotateX(pitch);
+         rotateY(roll);
+         ellipse(0, 0, 300, 300);
+      
     }
     
   /*  // LINEAS DE COLORES
@@ -312,5 +318,27 @@ void figuras3d()
     background(0);
   }else {
     rect(0,0,10,10);
-    }*/
+ 
+  }*/
+}
+
+void serialEvent(Serial p)
+{
+  String inString = p.readString().trim();
+  String[] list = split(inString, ':');
+  accX = int(list[0]) - 512;
+  accY = int(list[1]) - 512;
+  accZ = int(list[2]) - 512;
+  
+  gX = accX*(3/512.0);
+  gY = accY*(3/512.0);
+  gZ = accZ*(3/512.0);
+  
+  roll  = (atan2(-gY, gZ)*180.0)/PI;
+  pitch = (atan2(gX, sqrt(gY*gY + gZ*gZ))*180.0)/PI; 
+  
+  /*println(roll);
+  print(accX); print('\t');
+  print(accY); print('\t');
+  println(accZ);*/ 
 }
