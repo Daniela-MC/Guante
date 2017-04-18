@@ -32,10 +32,10 @@ void diseno()
   stroke(0);
   fill(0,0,0);
   textSize(32);
-  text("¡TO DRAW!",350,25);
+  text("TO DRAW",350,25);
   fill(255);
   stroke(255);
-  rect(1,30,797,125);
+  rect(1,30,797,90);
   fill(0,255,0);  // VERDE
   rect(50,70,25,25);
   fill(255,0,0);  // ROJO
@@ -271,6 +271,7 @@ if(mouseButton==LEFT){
 
 void figuras3d()
 {
+    //CUBO 
     if(mouseX>=663 && mouseX<=677 && mouseY>=73 && mouseY<=86)
     { 
       if (mousePressed && mouseButton==LEFT)
@@ -280,6 +281,7 @@ void figuras3d()
         rotateY(frameCount*PI/120.0);
         rotateZ(frameCount*PI/180.0);
         box(100, 100, 100);
+    
       } 
     }
     
@@ -288,9 +290,9 @@ void figuras3d()
       if (mousePressed && mouseButton==LEFT)
       {   
         translate(width/2, height/2);
-        rotateX(ang += 0.1);
-        rotateY(ang += 0.1);
-        rotateZ(ang += 0.1);
+         rotateX(frameCount*PI/60.0);
+        rotateY(frameCount*PI/120.0);
+        rotateZ(frameCount*PI/180.0);
         ellipse(0, 0, 300, 300);
       }
     }
