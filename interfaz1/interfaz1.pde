@@ -38,6 +38,7 @@ void draw()
 
 void diseno()
 {
+  //background(255);
    // SE CREAN LOS CUADROS DE LOS COLORES
   font1 = loadFont("Harrington-48.vlw");
   textFont(font1, 48);
@@ -259,7 +260,7 @@ void figuras2d()
     
     if(mouseX>=432 && mouseX<=454 && mouseY>=72 && mouseY<=93)
     {
-        rect(300,200,200,200);
+        rect(400,400,accX,accY);
         
     }
 }
@@ -267,7 +268,7 @@ if(mouseButton==LEFT){
     
     if(mouseX>=472 && mouseX<=505 && mouseY>=66 && mouseY<=90)
     {
-        ellipse(350,300,200,200);
+        ellipse(350,300,accX,accY);
         
     }
 }
@@ -291,6 +292,7 @@ void figuras3d()
        rotateX(pitch);
        rotateY(roll);
        box(100, 100, 100);
+       noStroke();
  
     }
     

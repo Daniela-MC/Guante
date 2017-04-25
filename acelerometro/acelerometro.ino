@@ -5,7 +5,7 @@ const int zPin=A2;
 void setup()
 {
  Serial.begin(9600);
- analogReference(EXTERNAL);
+ //analogReference(EXTERNAL);
  pinMode(xPin,INPUT);
  pinMode(yPin,INPUT);
  pinMode(zPin,INPUT);
