@@ -1,6 +1,8 @@
 import processing.serial.*;
 
-int X, Y, z=800, c=600, cl,count=0;
+PImage image_2017_04_29;
+
+int X, Y, z=800, c=600, cl;
 float pmouseX, pmouseY;
 color pincel = 0;
 PFont font1; // VARIABLE TIPO DE LETRA
@@ -33,23 +35,24 @@ void draw()
 {
  diseno();
  figuras2d();
- figuras3d();
+//figuras3d();
 }
 
 void diseno()
 {
-  //background(255);
-   // SE CREAN LOS CUADROS DE LOS COLORES
-  font1 = loadFont("Harrington-48.vlw");
-  textFont(font1, 48);
-  stroke(0);
-  fill(0,0,0);
-  textSize(32);
-  text("TO DRAW",350,25);
-  fill(255);
+  // SE CREAN LOS CUADROS DE LOS COLORES
+  font1 = loadFont("CopperplateGothic-Light-48.vlw");
+  textFont(font1, 10);
   stroke(255);
-  rect(1,30,797,90);
-  fill(0,255,0);  // VERDE
+  fill(0);
+  textSize(32);
+  text("TO DRAW",350,30);
+  image_2017_04_29 = loadImage("image_2017_04_29.jpg");
+  image(image_2017_04_29,530,50);
+  //fill(0);
+  //stroke(0);
+  //rect(1,30,797,90);
+  /*fill(0,255,0);  // VERDE
   rect(50,70,25,25);
   fill(255,0,0);  // ROJO
   rect(80,70,25,25);
@@ -67,31 +70,31 @@ void diseno()
   rect(260,70,25,25);
   fill(241,148,138);  // ROSADO
   rect(290,70,25,25);
-  fill(112,123,124);  // GRIS
-  rect(320,70,25,25);
+  fill(112,123,124);  // GRIS*/
+  //rect(10,10,25,25);
   fill(255);
   stroke(0);
-  rect(430,70,25,25); // PARA DIBUJAR UN CUADRADO
+  rect(32,80,25,25); // PARA DIBUJAR UN CUADRADO
   fill(255);
   stroke(0);
-  ellipse(490,80,30,30); // PARA DIBUJAR UN CIRCULO
+  ellipse(85,92,30,30); // PARA DIBUJAR UN CIRCULO
   fill(255);
   stroke(0);
-  triangle(510, 95, 540,70, 570, 95); // PARA DIBUJAR UN TRIANGULO
+  triangle(110, 105, 140,70, 170, 105); // PARA DIBUJAR UN TRIANGULO
   stroke(0);
   fill(0);
   textSize(26);
-  text("2D",470,60);
+  text("2D",60,70);
   stroke(0);
   fill(0);
   textSize(26);
-  text("3D",670,60);
+  text("3D",250,70);
   fill(255);
   stroke(0);
-  ellipse(670,80,10,10);
+  ellipse(250,90,10,10);
   fill(255);
   stroke(0);
-  ellipse(700,80,10,10);
+  ellipse(280,90,10,10);
   fill(255);
   
 }
@@ -119,11 +122,12 @@ void mouseDragged(){
 void mousePressed()
 {
   println("mouseX: "+mouseX +" mouseY: "+mouseY);
+  
   if(mouseButton==LEFT){
    
-    if(mouseX<=73 && mouseX>=51 && mouseY>=70 && mouseY<=94)
+    if(mouseX<=737 && mouseX>=775 && mouseY>=46 && mouseY<=64)
     {
-      pincel = color(0,255,0);
+      pincel = color(0,166,057); // VERDE
     }
     else 
     {  
@@ -135,9 +139,9 @@ void mousePressed()
 
   if(mouseButton==LEFT){
     
-    if(mouseX>=82 && mouseX<=102 && mouseY>=72 && mouseY<=92)
+    if(mouseX>=552 && mouseX<=574 && mouseY>=119 && mouseY<=122)
     {
-        pincel= color(255,0,0);
+        pincel= color(255,0,0);  // ROJO
       
     }
     else
@@ -148,9 +152,9 @@ void mousePressed()
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=112 && mouseX<=133 && mouseY>=70 && mouseY<=92)
+    if(mouseX>=608 && mouseX<=626 && mouseY>=85 && mouseY<=90)
     {
-        pincel= color(255,255,0);
+        pincel= color(255,255,0);  // AMARILLO
       
     }
     else
@@ -161,9 +165,9 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=142 && mouseX<=164 && mouseY>=70 && mouseY<=90)
+    if(mouseX>=667 && mouseX<=696 && mouseY>=97 && mouseY<=105)
     {
-        pincel= color(0,0,255);
+        pincel= color(0,0,255);  // AZUL
       
     }
     else
@@ -174,9 +178,9 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=172 && mouseX<=191 && mouseY>=73 && mouseY<=92)
+    if(mouseX>=579 && mouseX<=596 && mouseY>=90 && mouseY<=99)
     {
-        pincel= color(255,0,255);
+        pincel= color(243,165,005);  //NARANJA
       
     }
     else
@@ -187,9 +191,9 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=202 && mouseX<=222 && mouseY>=71 && mouseY<=90)
+    if(mouseX>=573 && mouseX<=589 && mouseY>=165 && mouseY<=184)
     {
-        pincel= color(0,0,0);
+        pincel= color(0,0,0); // NEGRO
       
     }
     else
@@ -199,9 +203,9 @@ if(mouseButton==LEFT){
     }
     if(mouseButton==LEFT){
     
-    if(mouseX>=232 && mouseX<=252 && mouseY>=71 && mouseY<=90)
+    if(mouseX>=661 && mouseX<=682 && mouseY>=140 && mouseY<=151)
     {
-        pincel= color(0,255,255);
+        pincel= color(198,166,100);  // CAFE
       
     }
     else
@@ -212,9 +216,9 @@ if(mouseButton==LEFT){
 }
  if(mouseButton==LEFT){
     
-    if(mouseX>=264 && mouseX<=280 && mouseY>=73 && mouseY<=91)
+    if(mouseX>=685 && mouseX<=713 && mouseY>=117 && mouseY<=129)
     {
-        pincel= color(142,68,173);
+        pincel= color(142,68,173);  // MORADO
       
     }
     else
@@ -225,9 +229,9 @@ if(mouseButton==LEFT){
 }
  if(mouseButton==LEFT){
     
-    if(mouseX>=293 && mouseX<=311 && mouseY>=71 && mouseY<=90)
+    if(mouseX>=548 && mouseX<=576 && mouseY>=142 && mouseY<=155)
     {
-        pincel= color(241,148,138);
+        pincel= color(255,192,235); // ROSADO
       
     }
     else
@@ -238,9 +242,9 @@ if(mouseButton==LEFT){
 }
 if(mouseButton==LEFT){
     
-    if(mouseX>=324 && mouseX<=342 && mouseY>=71 && mouseY<=90)
+    if(mouseX>=606 && mouseX<=632 && mouseY>=180 && mouseY<=190)
     {
-        pincel= color(112,123,124);
+        pincel= color(112,123,124); // GRIS
       
     }
     else
@@ -282,18 +286,25 @@ if(mouseButton==LEFT){
 }
 }
 
-void figuras3d()
+/*void figuras3d()
 {
+      
     //CUBO 
     if(mouseX>=663 && mouseX<=677 && mouseY>=73 && mouseY<=86)
-    { 
-      translate(width/2, height/2);
+    {       
+         /*fill(255);
+         stroke(255);
+         rect(1,125,797,470);
+       background(255);
+       diseno();
+       translate(width/2, height/2);
 
        rotateX(pitch);
        rotateY(roll);
+       stroke(0);
+       fill(255);
        box(100, 100, 100);
-       noStroke();
- 
+       
     }
     
     if(mouseX>=692 && mouseX<=707 && mouseY>=74 && mouseY<=83)
@@ -321,8 +332,8 @@ void figuras3d()
   }else {
     rect(0,0,10,10);
  
-  }*/
-}
+  }
+}*/
 
 void serialEvent(Serial p)
 {
